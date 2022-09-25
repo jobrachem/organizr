@@ -84,7 +84,7 @@ create_file <- function(name, prefix_by, suffix, content = "", start_line = 1) {
 }
 
 init_r <- function() {
-  if (!getOption("organizr.init_r", default = TRUE)) {
+  if (!getOption("organizr.r.init_with_date", default = TRUE)) {
     return()
   }
   fmt <- getOption("organizr.r.date_format", default = "%Y-%m-%d %H:%M")
