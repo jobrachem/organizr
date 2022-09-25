@@ -23,3 +23,11 @@ library(organizr)
 ## basic example code
 ```
 
+## Options
+
+- `organizr.prefix_delim`
+- `organizr.prefix_by` can be "count" or "date"
+- `organizr.prefix_date_format` 
+- `organizr.init_r`
+- `organizr.r.date_format`
+
