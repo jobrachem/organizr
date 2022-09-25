@@ -1,12 +1,13 @@
 Package: organizr
-Title: What the Package Does (One Line, Title Case)
+Title: Shortcuts for File Creation With Informative Prefixes
 Version: 0.0.0.9000
 Authors@R: 
-    person("First", "Last", , "first.last@example.com", role = c("aut", "cre"),
-           comment = c(ORCID = "YOUR-ORCID-ID"))
-Description: What the package does (one paragraph).
-License: `use_mit_license()`, `use_gpl3_license()` or friends to pick a
-    license
+    person("Johannes", "Brachem", , "jobrachem@posteo.de", role = c("aut", "cre"),
+           comment = c(ORCID = "0000-0001-7884-4631"))
+Description: Provides functions for quickly creating R scripts, as well as
+    Rmarkdown or Quarto documents with automatically assigned name prefixes.
+    Prefixes are either file counts (e.g. 001-) or dates (e.g. 2022-09-26).
+License: MIT + file LICENSE
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.2.0
