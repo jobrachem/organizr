@@ -46,12 +46,15 @@ project's .Rprofile:
 usethis::edit_r_profile(scope = "project")
 ```
 
-Then place the following line inside the .Rprofile:
+Then place the following code inside the .Rprofile:
 
 ``` r
-library(organizr)
+if (interactive()) {
+  suppressMessages(require(organizr))
+}
 ```
 
+This will always load up the library `organizr` in interactive R sessions. 
 Now, you will always be able to create consistently named new R scripts via
 quick and simple function calls like
 
