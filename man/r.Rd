@@ -4,18 +4,40 @@
 \alias{r}
 \alias{qmd}
 \alias{rmd}
-\title{Create files.}
+\title{Quickly create files with consistent prefixes.}
 \usage{
-r(name, prefix_by = c("count", "date"))
+r(
+  name,
+  prefix_by = c("count", "date"),
+  proj_path = here::here(),
+  open = rlang::is_interactive()
+)
 
-qmd(name, prefix_by = c("count", "date"))
+qmd(
+  name,
+  prefix_by = c("count", "date"),
+  proj_path = here::here(),
+  open = rlang::is_interactive()
+)
 
-rmd(name, prefix_by = c("count", "date"))
+rmd(
+  name,
+  prefix_by = c("count", "date"),
+  proj_path = here::here(),
+  open = rlang::is_interactive()
+)
 }
 \arguments{
 \item{name}{A character string; name of the script.}
 
-\item{prefix_by}{Which prefix to use.}
+\item{prefix_by}{Which prefix to use. Can be \code{"count"} or \code{"date"}.}
+
+\item{proj_path}{Project path.}
+
+\item{open}{If \code{TRUE}, tries to open the file with RStudio after creation.}
+}
+\value{
+The filepath as a character string.
 }
 \description{
 \code{r()} creates an R script.
@@ -23,4 +45,7 @@ rmd(name, prefix_by = c("count", "date"))
 \code{rmd()} creates an Rmarkdown document.
 
 \code{qmd()} creates a Quarto document.
+}
+\details{
+Details go here.
 }

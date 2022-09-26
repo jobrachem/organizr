@@ -1,11 +1,11 @@
 
 construct_count_prefix <- function(dir, suffix) {
   if (stringr::str_detect(suffix, "R$")) {
-    file_has_extension <- stringr::str_detect(list.files(dir), "\\.[Rr]$")
+    file_has_extension <- stringr::str_detect(fs::dir_ls(dir), "\\.[Rr]$")
   } else if (stringr::str_detect(suffix, "[Rr][Mm][Dd]$")) {
-    file_has_extension <- stringr::str_detect(list.files(dir), "\\.[Rr][Mm][Dd]$")
+    file_has_extension <- stringr::str_detect(fs::dir_ls(dir), "\\.[Rr][Mm][Dd]$")
   } else if (stringr::str_detect(suffix, "[Qq][Mm][Dd]$")) {
-    file_has_extension <- stringr::str_detect(list.files(dir), "\\.[Qq][Mm][Dd]$")
+    file_has_extension <- stringr::str_detect(fs::dir_ls(dir), "\\.[Qq][Mm][Dd]$")
   }
 
   pad <- getOption("organizr.padding", default = 3)
@@ -62,25 +62,42 @@ check_filepath <- function(path) {
   }
 }
 
-create_file <- function(name, prefix_by, suffix, content = "", start_line = 1) {
-  dir <- usethis::proj_path(suffix)
+create_file <- function(
+    name,
+    prefix_by,
+    suffix,
+    content = "",
+    start_line = 1,
+    proj_path = NULL,
+    open = NULL
+  ) {
+  if (is.null(proj_path)) proj_path <- here::here()
+  if (is.null(open)) open <- rlang::is_interactive()
+
+  dir <- fs::path(proj_path, suffix)
+  fs::dir_create(dir)
 
   prefix <- construct_prefix(dir, prefix_by = prefix_by, suffix = suffix)
   filename <- construct_filename(prefix, name, suffix = suffix)
-  filepath <- usethis::proj_path(suffix, filename)
+  filepath <- fs::path(dir, filename)
 
   check_filepath(filepath)
 
   filepath <- fs::path_expand(filepath)
-  dir <- fs::path_dir(filepath)
-  fs::dir_create(dir)
   fs::file_create(filepath)
   if (!is.null(content)) {
     readr::write_lines(content, filepath)
   }
 
-  rstudioapi::navigateToFile(filepath, line = start_line)
-  filepath
+  if (!open) {
+    return(invisible(filepath))
+  }
+
+  if (rstudioapi::hasFun("navigateToFile")) {
+    rstudioapi::navigateToFile(filepath, line = start_line)
+  }
+
+  invisible(filepath)
 }
 
 init_r <- function() {
@@ -91,35 +108,35 @@ init_r <- function() {
   now <- Sys.time()
   timestamp <- strftime(now, fmt)
   content <- paste0("# Created: ", timestamp, " by {organizr}", "\n")
-  list(content=content, start_line=3)
+  list(content = content, start_line = 3)
 }
 
 init_qmd <- function(name) {
-
   title <- paste("title:", name)
   output <- paste("format:", "html")
 
   content <- c("---", title, output, "---")
 
-  list(content=content, start_line=5)
+  list(content = content, start_line = 5)
 }
 
-
 init_rmd <- function(name) {
-
   title <- paste("title:", name)
   output <- paste("output:", "html_document")
 
   content <- c("---", title, output, "---")
 
-  list(content=content, start_line=5)
+  list(content = content, start_line = 5)
 }
 
-
-#' Create files.
+#' Quickly create files with consistent prefixes.
+#'
+#' Details go here.
 #'
 #' @param name A character string; name of the script.
-#' @param prefix_by Which prefix to use.
+#' @param prefix_by Which prefix to use. Can be `"count"` or `"date"`.
+#' @param proj_path Project path.
+#' @param open If `TRUE`, tries to open the file with RStudio after creation.
 #'
 #' @description
 #' `r()` creates an R script.
@@ -128,8 +145,10 @@ init_rmd <- function(name) {
 #'
 #' `qmd()` creates a Quarto document.
 #'
+#' @returns The filepath as a character string.
+#'
 #' @export
-r <- function(name, prefix_by = c("count", "date")) {
+r <- function(name, prefix_by = c("count", "date"), proj_path = here::here(), open = rlang::is_interactive()) {
   prefix_by <- match.arg(prefix_by)
   content <- init_r()
   filepath <- create_file(
@@ -137,13 +156,17 @@ r <- function(name, prefix_by = c("count", "date")) {
     prefix_by,
     suffix = "R",
     content = content$content,
-    start_line = content$start_line
+    start_line = content$start_line,
+    proj_path = proj_path,
+    open = open
   )
+
+  invisible(filepath)
 }
 
 #' @export
 #' @rdname r
-qmd <- function(name, prefix_by = c("count", "date")) {
+qmd <- function(name, prefix_by = c("count", "date"), proj_path = here::here(), open = rlang::is_interactive()) {
   prefix_by <- match.arg(prefix_by)
   content <- init_qmd(name)
   filepath <- create_file(
@@ -151,13 +174,16 @@ qmd <- function(name, prefix_by = c("count", "date")) {
     prefix_by,
     suffix = "qmd",
     content = content$content,
-    start_line = content$start_line
+    start_line = content$start_line,
+    proj_path = proj_path,
+    open = open
   )
+  invisible(filepath)
 }
 
 #' @export
 #' @rdname r
-rmd <- function(name, prefix_by = c("count", "date")) {
+rmd <- function(name, prefix_by = c("count", "date"), proj_path = here::here(), open = rlang::is_interactive()) {
   prefix_by <- match.arg(prefix_by)
   content <- init_rmd(name)
   filepath <- create_file(
@@ -165,6 +191,9 @@ rmd <- function(name, prefix_by = c("count", "date")) {
     prefix_by,
     suffix = "rmd",
     content = content$content,
-    start_line = content$start_line
+    start_line = content$start_line,
+    proj_path = proj_path,
+    open = open
   )
+  invisible(filepath)
 }
