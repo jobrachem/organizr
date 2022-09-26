@@ -1,6 +1,6 @@
 Package: organizr
 Title: Shortcuts for File Creation With Informative Prefixes
-Version: 0.0.1.9000
+Version: 0.1.0
 Authors@R: 
     person("Johannes", "Brachem", , "jobrachem@posteo.de", role = c("aut", "cre"),
            comment = c(ORCID = "0000-0001-7884-4631"))
