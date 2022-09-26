@@ -1,8 +1,8 @@
 Package: organizr
-Title: Shortcuts for File Creation With Informative Prefixes
+Title: Shortcuts for File Creation with Informative Prefixes
 Version: 0.1.0
 Authors@R: 
-    person("Johannes", "Brachem", , "jobrachem@posteo.de", role = c("aut", "cre"),
+    person("Johannes", "Brachem", , "jbrachem@posteo.de", role = c("aut", "cre"),
            comment = c(ORCID = "0000-0001-7884-4631"))
 Description: Provides functions for quickly creating R scripts, as well as
     Rmarkdown or Quarto documents with automatically assigned name prefixes.
