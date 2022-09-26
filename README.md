@@ -32,7 +32,7 @@ You can install the development version of organizr like so:
 
 ``` r
 # install.packages("devtools") # if you do not have devtools installed
-devtools::install_github("tidyverse/dplyr")
+devtools::install_github("jobrachem/organizr")
 ```
 
 ## Setup
@@ -86,7 +86,7 @@ the .Rprofile file.
 
 The available options are:
 
-- `organizr.prefix_delim`: The default is `"_"`
+- `organizr.prefix_delim`: Which character to insert as a separator between the prefix and the actual file name. The default is `"_"`
 - `organizr.prefix_by`: Can be used to override the function default of `"count"`. Can be `"count"` or `"date"`.
 - `organizr.prefix_date_format`: Date format for date prefixes. Can be any format string accepted by `strftime`. Default is `"%Y-%m-%d"`.
 - `organizr.r.init_with_date`: Can be set to `FALSE` to turn off the inclusion of the timestamp comment at the top of R scripts.
