@@ -7,6 +7,8 @@ Authors@R:
 Description: Provides functions for quickly creating R scripts, as well as
     Rmarkdown or Quarto documents with automatically assigned name prefixes.
     Prefixes are either file counts (e.g. "001") or dates (e.g. "2022-09-26").
+URL: https://github.com/jobrachem/organizr
+BugReports: https://github.com/jobrachem/organizr/issues
 License: MIT + file LICENSE
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
