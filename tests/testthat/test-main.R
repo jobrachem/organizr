@@ -46,6 +46,10 @@ test_that("File creation with date prefix works", {
 
   fp <- create_file("test", prefix = "date", suffix = "R", proj_path = tmp, open = FALSE)
   expect_true(stringr::str_starts(fs::path_file(fp), prefix))
+
+  expect_error(
+    create_file("test", prefix = "date", suffix = "R", proj_path = tmp, open = FALSE)
+  )
 })
 
 test_that("R file creation works.", {
@@ -106,3 +110,5 @@ test_that("RMD file content works.", {
   expect_true(stringr::str_detect(content[3], "^output: html_document"))
   expect_true(stringr::str_detect(content[4], "---"))
 })
+
+
