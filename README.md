@@ -5,14 +5,16 @@
 [![R-CMD-check](https://github.com/jobrachem/organizr/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/jobrachem/organizr/actions/workflows/R-CMD-check.yaml)
 <!-- badges: end -->
 
-The goal of organizr is to ...
+Organizr provides code-shortcuts to quickly create R scripts, as well as 
+minimal Quarto and Rmarkdown documents with a consistent naming scheme.
 
 ## Installation
 
 You can install the development version of organizr like so:
 
 ``` r
-# FILL THIS IN! HOW CAN PEOPLE INSTALL YOUR DEV PACKAGE?
+# install.packages("devtools") # if you do not have devtools installed
+devtools::install_github("tidyverse/dplyr")
 ```
 
 ## Example
