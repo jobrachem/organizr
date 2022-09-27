@@ -61,6 +61,16 @@ test_that("R file creation works.", {
   expect_true(stringr::str_detect(dir, "R$"))
 })
 
+
+test_that("Python file creation works.", {
+  tmp <- fs::path_temp()
+  fp <- py("test", proj_path = tmp, open = FALSE)
+  dir <- fs::path_dir(fp)
+
+  expect_true(fs::file_exists(fp))
+  expect_true(stringr::str_detect(dir, "py$"))
+})
+
 test_that("R file timestamp works.", {
   tmp <- fs::path_temp()
   fp <- r("test", proj_path = tmp, open = FALSE)

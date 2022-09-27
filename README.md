@@ -87,11 +87,41 @@ options("option_name" = "option_value")
 If you want to use options, it often makes sense to also place them directly in
 the .Rprofile file.
 
-The available options are:
+Example:
 
-- `organizr.prefix_delim`: Which character to insert as a separator between the prefix and the actual file name. The default is `"_"`
-- `organizr.prefix_by`: Can be used to override the function default of `"count"`. Can be `"count"` or `"date"`.
-- `organizr.prefix_date_format`: Date format for date prefixes. Can be any format string accepted by `strftime`. Default is `"%Y-%m-%d"`.
-- `organizr.r.init_with_date`: Can be set to `FALSE` to turn off the inclusion of the timestamp comment at the top of R scripts.
-- `organizr.r.date_format`: Date format for R script timestamp comment. Can be any format string accepted by `strftime`. Default is `"%Y-%m-%d %H:%M"`.
+With this function call, you set the default prefix used by `organizr` to "date":
 
+```r
+options("organizr.prefix_by" = "date")
+```
+
+General options:
+
+| Option | Meaning |
+| --- | --- |
+| `organizr.prefix_delim` | Which character to insert as a separator between the prefix and the actual file name. The default is `"_"`|
+| `organizr.prefix_by` | Can be used to override the function default of `"count"`. Can be `"count"` or `"date"`. |
+| `organizr.prefix_date_format` | Date format for date prefixes. Can be any format string accepted by `strftime`. Default is `"%Y-%m-%d"`. |
+
+Options for R scripts:
+
+| Option | Meaning |
+| --- | --- |
+| `organizr.r.init_with_date` | Can be set to `FALSE` to turn off the inclusion of the timestamp comment at the top of the script. | 
+`organizr.r.date_format` | Date format for R and Python script timestamp comment. Can be any format string accepted by `strftime`. Default is `"%Y-%m-%d %H:%M"`. |
+`organizr.r.directory` | The directory in which the scripts should be place (relative to the project directory) |
+
+Options for Python scripts:
+
+| Option | Meaning |
+| --- | --- |
+| `organizr.py.init_with_date` | Can be set to `FALSE` to turn off the inclusion of the timestamp comment at the top of the script. | 
+`organizr.py.date_format` | Date format for R and Python script timestamp comment. Can be any format string accepted by `strftime`. Default is `"%Y-%m-%d %H:%M"`. |
+`organizr.py.directory` | The directory in which the scripts should be place (relative to the project directory) |
+
+Other options:
+
+| Option | Meaning |
+| --- | --- |
+| `organizr.rmd.directory` | The directory in which `.Rmd` files should be place (relative to the project directory) |
+| `organizr.qmd.directory` | The directory in which `.qmd` files should be place (relative to the project directory) |

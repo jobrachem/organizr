@@ -4,6 +4,7 @@
 \alias{r}
 \alias{qmd}
 \alias{rmd}
+\alias{py}
 \title{Quickly create files with consistent prefixes.}
 \usage{
 r(
@@ -21,6 +22,13 @@ qmd(
 )
 
 rmd(
+  name,
+  prefix_by = c("count", "date"),
+  proj_path = here::here(),
+  open = rlang::is_interactive()
+)
+
+py(
   name,
   prefix_by = c("count", "date"),
   proj_path = here::here(),
