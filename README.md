@@ -67,9 +67,10 @@ the file `001_my-script.R` in the directory `project_path/R`.
 
 ## Some details
 
-Organizr offers the three following function:
+Organizr offers the four following functions:
 
 - `r()` creates an R script with a timestamp in `project_path/R`.
+- `py()` creates an R script with a timestamp in `project_path/py`.
 - `qmd()` creates a minimal Quarto document in `project_path/qmd`.
 - `rmd()` creates a minimal Quarto document in `project_path/rmd`.
 
