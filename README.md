@@ -40,7 +40,7 @@ devtools::install_github("jobrachem/organizr")
 Organizr offers the four following functions:
 
 - `r()` creates an R script with a timestamp in `project_path/R`.
-- `py()` creates an R script with a timestamp in `project_path/py`.
+- `py()` creates a Python script with a timestamp in `project_path/py`.
 - `qmd()` creates a minimal Quarto document in `project_path/qmd`.
 - `rmd()` creates a minimal Quarto document in `project_path/rmd`.
 
