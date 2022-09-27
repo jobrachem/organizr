@@ -1,40 +1,15 @@
 ## R CMD check results
 There were no ERRORs or  WARNINGs. 
 
-There were three NOTES in total.
+There were two NOTES in total.
 
 Tested on:
 
 - Local machine: macOS Monterey 12.6, R 4.2.0 (0 NOTES)
-- R-hub: Windows Server 2022, R-devel, 64 bit (2 NOTES)
-- R-hub: Ubuntu Linux 20.04.1 LTS, R-release, GCC (1 NOTE)
-- R-hub: Fedora Linux, R-devel, clang, gfortran (2 NOTES)
-
+- R-hub: Windows Server 2022, R-devel, 64 bit (1 NOTES)
+- R-hub: Fedora Linux, R-devel, clang, gfortran (1 NOTES)
 
 ### NOTE 1
-
-```
-* checking CRAN incoming feasibility ... [11s] NOTE
-
-New submission
-
-Possibly misspelled words in DESCRIPTION:
-  Rmarkdown (8:5)
-Maintainer: 'Johannes Brachem <jbrachem@posteo.de>'
-```
-
-It appeared on
-
-- R-hub: Windows Server 2022, R-devel, 64 bit (2 NOTES)
-- R-hub: Ubuntu Linux 20.04.1 LTS, R-release, GCC (1 NOTE)
-- R-hub: Fedora Linux, R-devel, clang, gfortran (2 NOTES)
-
-This note is about the spelling in the DESCRIPTION. I propose to ignore this 
-note.
-
-### NOTE 2
-
-The second note is:
 
 ```
 * checking for detritus in the temp directory ... NOTE
@@ -51,7 +26,7 @@ As noted in [R-hub issue #503](https://github.com/r-hub/rhub/issues/503),
 this could be due to a bug/crash in MiKTeX and can likely be ignored.
 
 
-### NOTE 3
+### NOTE 2
 
 ```
 * checking HTML version of manual ... NOTE
