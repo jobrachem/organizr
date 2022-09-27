@@ -146,9 +146,10 @@ init_rmd <- function(name) {
   list(content = content, start_line = 5)
 }
 
-#' Quickly create files with consistent prefixes.
+#' Quickly create and open files with consistent prefixes.
 #'
-#' Details go here.
+#' Orgnizr allows you to set some global options. See
+#' \url{https://github.com/jobrachem/organizr} for details.
 #'
 #' @param name A character string; name of the script.
 #' @param prefix_by Which prefix to use. Can be `"count"` or `"date"`.
@@ -157,6 +158,8 @@ init_rmd <- function(name) {
 #'
 #' @description
 #' `r()` creates an R script.
+#'
+#' `py()` creates a Python script.
 #'
 #' `rmd()` creates an Rmarkdown document.
 #'

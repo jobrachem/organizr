@@ -5,7 +5,7 @@
 \alias{qmd}
 \alias{rmd}
 \alias{py}
-\title{Quickly create files with consistent prefixes.}
+\title{Quickly create and open files with consistent prefixes.}
 \usage{
 r(
   name,
@@ -50,10 +50,13 @@ The filepath as a character string.
 \description{
 \code{r()} creates an R script.
 
+\code{py()} creates a Python script.
+
 \code{rmd()} creates an Rmarkdown document.
 
 \code{qmd()} creates a Quarto document.
 }
 \details{
-Details go here.
+Orgnizr allows you to set some global options. See
+\url{https://github.com/jobrachem/organizr} for details.
 }
