@@ -95,7 +95,7 @@ With this function call, you set the default prefix used by `organizr` to "date"
 options("organizr.prefix_by" = "date")
 ```
 
-General options:
+### General options:
 
 | Option | Meaning |
 | --- | --- |
@@ -103,7 +103,7 @@ General options:
 | `organizr.prefix_by` | Can be used to override the function default of `"count"`. Can be `"count"` or `"date"`. |
 | `organizr.prefix_date_format` | Date format for date prefixes. Can be any format string accepted by `strftime`. Default is `"%Y-%m-%d"`. |
 
-Options for R scripts:
+### Options for R scripts:
 
 | Option | Meaning |
 | --- | --- |
@@ -111,7 +111,7 @@ Options for R scripts:
 `organizr.r.date_format` | Date format for R and Python script timestamp comment. Can be any format string accepted by `strftime`. Default is `"%Y-%m-%d %H:%M"`. |
 `organizr.r.directory` | The directory in which the scripts should be place (relative to the project directory) |
 
-Options for Python scripts:
+### Options for Python scripts:
 
 | Option | Meaning |
 | --- | --- |
@@ -119,7 +119,7 @@ Options for Python scripts:
 `organizr.py.date_format` | Date format for R and Python script timestamp comment. Can be any format string accepted by `strftime`. Default is `"%Y-%m-%d %H:%M"`. |
 `organizr.py.directory` | The directory in which the scripts should be place (relative to the project directory) |
 
-Other options:
+### Other options:
 
 | Option | Meaning |
 | --- | --- |
