@@ -42,7 +42,7 @@ Organizr offers the four following functions:
 - `r()` creates an R script with a timestamp-comment in `project_path/R`.
 - `py()` creates a Python script with a timestamp-comment in `project_path/py`.
 - `qmd()` creates a minimal Quarto document in `project_path/qmd`.
-- `rmd()` creates a minimal Quarto document in `project_path/rmd`.
+- `rmd()` creates a minimal Rmarkdown document in `project_path/rmd`.
 
 Organizr is an opinionated package. It may very well be that it does not fit your personal workflow, and that's ok. 
 
